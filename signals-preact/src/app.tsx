@@ -1,10 +1,10 @@
-import { useState } from 'preact/hooks'
+import { signal } from '@preact/signals'
 import preactLogo from './assets/preact.svg'
 import './app.css'
 
-export function App() {
-  const [count, setCount] = useState(0)
+const count = signal(0)
 
+export function App() {
   return (
     <>
       <div>
@@ -17,7 +17,7 @@ export function App() {
       </div>
       <h1>Vite + Preact</h1>
       <div class="card">
-        <button onClick={() => setCount((count) => count + 1)}>
+        <button onClick={() => count.value++ }>
           count is {count}
         </button>
         <p>
