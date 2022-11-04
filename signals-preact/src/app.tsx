@@ -1,8 +1,9 @@
-import { signal } from '@preact/signals'
+import { signal, computed } from '@preact/signals'
 import preactLogo from './assets/preact.svg'
 import './app.css'
 
 const count = signal(0)
+const double = computed(() => count.value * 2)
 
 export function App() {
   return (
@@ -18,7 +19,7 @@ export function App() {
       <h1>Vite + Preact</h1>
       <div class="card">
         <button onClick={() => count.value++ }>
-          count is {count}
+          count is {count} and double is {double}
         </button>
         <p>
           Edit <code>src/app.tsx</code> and save to test HMR
