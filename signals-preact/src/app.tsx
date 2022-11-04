@@ -1,12 +1,11 @@
-import { signal, computed, effect } from '@preact/signals'
+import { useSignal, useComputed, useSignalEffect } from '@preact/signals'
 import preactLogo from './assets/preact.svg'
 import './app.css'
 
-const count = signal(0)
-const double = computed(() => count.value * 2)
-effect(() => console.log(count.value)) 
-
 export function App() {
+  const count = useSignal(0)
+  const double = useComputed(() => count.value * 2)
+  useSignalEffect(() => console.log(count.value))
   return (
     <>
       <div>
